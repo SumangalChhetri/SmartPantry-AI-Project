@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 **IBM AI & Cloud Internship Final Project**  
-*Developed by: [Your Name]*
+*Developed by: Sumangal Chhetri*
 
 ---
 
@@ -60,17 +60,26 @@ SmartPantry is an intelligent cooking assistant that leverages IBM's cutting-edg
 ### groceries.csv (User Ingredient Data)
 ```csv
 UserID,Name,Ingredients,Preferences,Dietary_Restrictions
-1,Amit,tomato;onion;garlic;bread,vegetarian,none
-2,Sneha,egg;flour;milk;spinach,high_protein,gluten_free
-3,Rahul,chicken;rice;bell_pepper;soy_sauce,non_vegetarian,none
+1,Priya,rice;chicken;onion;tomato;ginger,spicy_food,none
+2,Arjun,paneer;spinach;flour;milk;garlic,vegetarian,lactose_sensitive
+3,Neha,egg;bread;butter;cheese;bell_pepper,quick_breakfast,none
+4,Rohit,lentils;rice;turmeric;cumin;onion,healthy_meals,gluten_free
+5,Kavya,pasta;mushroom;cream;garlic;herbs,italian_food,none
+6,Vikram,fish;coconut;curry_leaves;mustard_seeds,south_indian,none
+7,Ananya,quinoa;avocado;tomato;cucumber;lime,salads,vegan
+8,Dev,mutton;potato;bay_leaves;cinnamon,non_vegetarian,none
+9,Shreya,oats;banana;almonds;honey;cinnamon,healthy_breakfast,nut_allergy
+10,Karthik,prawns;rice;coconut_milk;chili,seafood,none
 ```
 
 ### recipes.csv (Recipe Database)
 ```csv
 RecipeID,Title,Ingredients,Steps,Cooking_Time,Difficulty,Tags
-101,Tomato Garlic Bread,tomato;garlic;bread;olive_oil,"Step 1: Slice bread...",15,easy,vegetarian;quick
-102,Spinach Omelette,egg;spinach;salt;pepper,"Step 1: Beat eggs...",10,easy,high_protein;gluten_free
-103,Chicken Fried Rice,chicken;rice;soy_sauce;vegetables,"Step 1: Cook rice...",25,medium,non_vegetarian;asian
+101,Spicy Chicken Rice,rice;chicken;onion;tomato;ginger;chili,"1. Wash and soak rice...",45,medium,spicy;non_vegetarian
+102,Palak Paneer,paneer;spinach;onion;tomato;garlic;cream,"1. Blanch spinach leaves...",30,easy,vegetarian;healthy
+103,Cheese Omelette,egg;cheese;butter;bell_pepper;onion,"1. Beat eggs with salt...",10,easy,quick;breakfast
+104,Dal Rice Bowl,lentils;rice;turmeric;cumin;onion;tomato,"1. Wash and pressure cook...",35,easy,healthy;vegetarian;gluten_free
+105,Creamy Mushroom Pasta,pasta;mushroom;cream;garlic;herbs;parmesan,"1. Boil pasta according...",25,medium,italian;vegetarian;creamy
 ```
 
 ## 🔄 System Flow
@@ -85,30 +94,32 @@ RecipeID,Title,Ingredients,Steps,Cooking_Time,Difficulty,Tags
 ## 💬 Example Conversation
 
 ```
-👤 User: I have spinach, eggs, flour, and milk. I prefer high-protein meals.
+👤 User: Hi! I'm Kavya and I have pasta, mushrooms, cream, garlic, and some herbs. I love Italian food!
 
 🤖 SmartPantry Agent: 
-Great! Based on your ingredients, I found 3 perfect matches:
+Hello Kavya! Perfect ingredients for Italian cuisine! I found an excellent match for you:
 
-🥞 **Spinach Protein Pancakes** (⭐ 95% match)
-- Cooking Time: 15 minutes
-- Protein: High
-- Difficulty: Easy
+🍝 **Creamy Mushroom Pasta** (⭐ 98% match)
+- Cooking Time: 25 minutes
+- Cuisine: Italian
+- Difficulty: Medium
 
-📝 **Ingredients Used**: spinach, eggs, flour, milk
-🔄 **Substitutions**: None needed - perfect match!
+📝 **Ingredients Used**: pasta, mushrooms, cream, garlic, herbs
+🔄 **Substitutions**: None needed - you have everything!
 
 **Step-by-Step Instructions:**
-1. Blend 1 cup spinach with 2 eggs and ½ cup milk
-2. Mix in ¾ cup flour until smooth batter forms
-3. Heat pan on medium heat with oil
-4. Pour batter to form pancakes, cook 3-4 minutes each side
-5. Serve hot with your favorite toppings
+1. Boil pasta according to package instructions until al dente
+2. Slice mushrooms and mince garlic finely
+3. Heat olive oil in large pan, sauté garlic until fragrant
+4. Add sliced mushrooms and cook until golden brown
+5. Pour in cream and add fresh herbs (basil/oregano work great!)
+6. Toss with drained pasta and mix well
+7. Top with freshly grated parmesan if available
 
-💡 **Chef's Tip**: Add a pinch of garlic powder for extra flavor!
-🥗 **Nutritional Info**: 25g protein, 320 calories per serving
+💡 **Chef's Tip**: Save some pasta water - it helps bind the sauce perfectly!
+🥗 **Nutritional Info**: Rich in protein and carbs, perfect comfort food
 
-Would you like more recipe options or cooking tips?
+Would you like me to suggest a side dish or dessert to complete your Italian meal?
 ```
 
 ## 📁 Project Structure
@@ -203,9 +214,10 @@ streamlit run streamlit_app.py
 ### Input
 ```json
 {
-  "user_id": "user_001",
-  "ingredients": ["tomato", "onion", "garlic", "pasta"],
-  "preferences": ["vegetarian", "quick_meals"],
+  "user_id": "user_005",
+  "name": "Kavya",
+  "ingredients": ["pasta", "mushroom", "cream", "garlic", "herbs"],
+  "preferences": ["italian_food"],
   "cooking_time": "30_minutes"
 }
 ```
@@ -213,22 +225,23 @@ streamlit run streamlit_app.py
 ### Output
 ```json
 {
-  "recipe_id": "rec_045",
-  "title": "Quick Tomato Garlic Pasta",
-  "match_score": 0.94,
-  "cooking_time": "20 minutes",
-  "difficulty": "easy",
+  "recipe_id": "rec_105",
+  "title": "Creamy Mushroom Pasta",
+  "match_score": 0.98,
+  "cooking_time": "25 minutes",
+  "difficulty": "medium",
   "instructions": [
-    "Boil pasta according to package directions",
-    "Sauté minced garlic and diced onions",
-    "Add chopped tomatoes and cook until soft",
-    "Toss with cooked pasta and serve hot"
+    "Boil pasta according to package instructions until al dente",
+    "Slice mushrooms and mince garlic finely",
+    "Heat oil in pan, sauté garlic until fragrant",
+    "Add mushrooms and cook until golden brown",
+    "Pour cream and add herbs, toss with pasta"
   ],
   "substitutions": {
-    "pasta": ["rice", "quinoa"],
-    "tomato": ["bell_pepper", "zucchini"]
+    "cream": ["milk", "coconut_cream"],
+    "mushroom": ["bell_pepper", "zucchini"]
   },
-  "tips": "Add fresh basil for enhanced flavor"
+  "tips": "Save pasta water to bind the sauce perfectly"
 }
 ```
 
@@ -249,11 +262,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## 📞 Contact
 
-**Developer**: [Your Name]  
-**Email**: [your.email@example.com]  
-**LinkedIn**: [your-linkedin-profile]  
-**Project Demo**: [Live Demo Link]
-
+**Developer**: Sumangal Chhetri  
+**Email**: sumangalchhetri4321@gmail.com  
 ---
 
 ⭐ **Don't forget to star this repository if you found it helpful!** ⭐
