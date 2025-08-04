@@ -1,0 +1,13 @@
+UserID,Name,Ingredients,Preferences,Dietary_Restrictions
+1,Priya,rice;chicken;onion;tomato;ginger,spicy_food,none
+2,Arjun,paneer;spinach;flour;milk;garlic,vegetarian,lactose_sensitive
+3,Neha,egg;bread;butter;cheese;bell_pepper,quick_breakfast,none
+4,Rohit,lentils;rice;turmeric;cumin;onion,healthy_meals,gluten_free
+5,Kavya,pasta;mushroom;cream;garlic;herbs,italian_food,none
+6,Vikram,fish;coconut;curry_leaves;mustard_seeds,south_indian,none
+7,Ananya,quinoa;avocado;tomato;cucumber;lime,salads,vegan
+8,Dev,mutton;potato;bay_leaves;cinnamon,non_vegetarian,none
+9,Shreya,oats;banana;almonds;honey;cinnamon,healthy_breakfast,nut_allergy
+10,Karthik,prawns;rice;coconut_milk;chili,seafood,none
+11,Meera,chickpeas;spinach;garam_masala;ginger,protein_rich,none
+12,Aarav,noodles;vegetables;soy_sauce;sesame_oil,chinese_food,none
